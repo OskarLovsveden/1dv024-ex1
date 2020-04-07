@@ -28,5 +28,16 @@ namespace examination_1
             int min = source.Min();
             return min;
         }
+
+        /// <summary>
+        /// Gets the mean value of an array containing numbers.
+        /// </summary>
+        /// <param name="source">The source array to get the max value of.</param>
+        /// <returns></returns>
+        public static double Mean(int[] source)
+        {
+            double mean = source.Average();
+            return mean;
+        }
     }
 }
