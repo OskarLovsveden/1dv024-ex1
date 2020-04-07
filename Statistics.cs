@@ -5,7 +5,7 @@ namespace examination_1
     /// <summary>
     /// Represents a statistics class.
     /// </summary>
-    public class Statistics
+    public static class Statistics
     {
         /// <summary>
         /// Gets the max value of an array containing numbers.
@@ -16,6 +16,17 @@ namespace examination_1
         {
             int max = source.Max();
             return max;
+        }
+
+        /// <summary>
+        /// Gets the min value of an array containing numbers.
+        /// </summary>
+        /// <param name="source">The source array to get the max value of.</param>
+        /// <returns></returns>
+        public static int Minimum(int[] source)
+        {
+            int min = source.Min();
+            return min;
         }
     }
 }
