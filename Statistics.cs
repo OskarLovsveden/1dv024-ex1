@@ -10,10 +10,10 @@ namespace examination_1
     public static class Statistics
     {
         /// <summary>
-        /// Gets the max value of an array containing numbers.
+        /// Gets the max value in an array containing integers.
         /// </summary>
         /// <param name="source">The source array to get the max value of.</param>
-        /// <returns></returns>
+        /// <returns>An integer.</returns>
         public static int Maximum(int[] source)
         {
             int max = source.Max();
@@ -21,10 +21,10 @@ namespace examination_1
         }
 
         /// <summary>
-        /// Gets the min value of an array containing numbers.
+        /// Gets the min value in an array containing integers.
         /// </summary>
         /// <param name="source">The source array to get the max value of.</param>
-        /// <returns></returns>
+        /// <returns>An integer.</returns>
         public static int Minimum(int[] source)
         {
             int min = source.Min();
@@ -32,10 +32,10 @@ namespace examination_1
         }
 
         /// <summary>
-        /// Gets the mean value of an array containing numbers.
+        /// Gets the mean value in an array containing integers.
         /// </summary>
         /// <param name="source">The source array to get the max value of.</param>
-        /// <returns></returns>
+        /// <returns>A double.</returns>
         public static double Mean(int[] source)
         {
             double mean = source.Average();
@@ -43,10 +43,10 @@ namespace examination_1
         }
 
         /// <summary>
-        /// Gets the median value of an array containing numbers.
+        /// Gets the median value in an array containing integers.
         /// </summary>
         /// <param name="source">The source array to get the max value of.</param>
-        /// <returns></returns>
+        /// <returns>A double.</returns>
         public static double Median(int[] source)
         {
             int[] copy = new int[source.Length];
@@ -71,10 +71,10 @@ namespace examination_1
         }
 
         /// <summary>
-        /// Gets the most frequently occuring values in an array containing numbers.
+        /// Gets the most frequently occuring values in an array containing integers.
         /// </summary>
         /// <param name="source">The source array to get the data of.</param>
-        /// <returns></returns>
+        /// <returns>An array of integers.</returns>
         public static int[] Mode(int[] source)
         {
             int[] copy = new int[source.Length];
@@ -109,14 +109,16 @@ namespace examination_1
             return (int[])modeList.ToArray();
         }
 
+        /// <summary>
+        /// Gets the range between the highest and lowest values in an array containing integers.
+        /// </summary>
+        /// <param name="source">The source array to get the data of.</param>
+        /// <returns>An integer.</returns>
         public static int Range(int[] source)
         {
-            // Do things
+            int rangeValue = Maximum(source) - Minimum(source);
+            return rangeValue;
         }
 
-        public static double StandardDeviation(int[] source)
-        {
-            // Do more things
-        }
     }
 }
