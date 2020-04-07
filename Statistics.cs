@@ -120,5 +120,19 @@ namespace examination_1
             return rangeValue;
         }
 
+        /// <summary>
+        /// Gets the standard deviation in an array containing integers.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns>A double.</returns>
+        public static double StandardDeviation(int[] source)
+        {
+            double mean = Mean(source);
+            // double sumOfSquaredNumbers = source.Sum(number => (number - mean) * (number - mean));
+            double sumOfSquaredNumbers = source.Select(number => (number - mean) * (number - mean)).Sum();
+            double standardDeviation = Math.Sqrt(sumOfSquaredNumbers / (source.Length));
+
+            return standardDeviation;
+        }
     }
 }
