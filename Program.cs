@@ -29,6 +29,9 @@ namespace examination_1
 
                 double mean = Statistics.Mean(array);
                 System.Console.WriteLine($"{mean:f1}");
+
+                double median = Statistics.Median(array);
+                System.Console.WriteLine(median);
             }
         }
     }
