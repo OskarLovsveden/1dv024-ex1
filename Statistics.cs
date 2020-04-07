@@ -108,5 +108,15 @@ namespace examination_1
 
             return (int[])modeList.ToArray();
         }
+
+        public static int Range(int[] source)
+        {
+            // Do things
+        }
+
+        public static double StandardDeviation(int[] source)
+        {
+            // Do more things
+        }
     }
 }
