@@ -15,6 +15,7 @@ namespace examination_1
         /// <param name="args">Array containing arguments passed to the application.</param>
         static void Main(string[] args)
         {
+            string fileName = args[0];
             using (var reader = new StreamReader(args[0]))
             {
                 string json = reader.ReadToEnd();
@@ -22,6 +23,10 @@ namespace examination_1
 
                 int max = Statistics.Maximum(array);
                 System.Console.WriteLine(max);
+
+                int min = Statistics.Minimum(array);
+                System.Console.WriteLine(min);
+
             }
         }
     }
