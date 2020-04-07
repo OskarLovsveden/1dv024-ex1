@@ -32,6 +32,19 @@ namespace examination_1
 
                 double median = Statistics.Median(array);
                 System.Console.WriteLine(median);
+
+                int[] mode = Statistics.Mode(array);
+                for (var i = 0; i < mode.Length; i++)
+                {
+                    if (i != mode.Length - 1)
+                    {
+                        System.Console.Write(mode[i] + ", ");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine(mode[i]);
+                    }
+                }
             }
         }
     }
