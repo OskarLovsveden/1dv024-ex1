@@ -28,7 +28,8 @@ namespace examination_1
                 System.Console.WriteLine(min);
 
                 double mean = Statistics.Mean(array);
-                System.Console.WriteLine($"{mean:f1}");
+                // System.Console.WriteLine($"{mean:f1}");
+                System.Console.WriteLine(mean);
 
                 double median = Statistics.Median(array);
                 System.Console.WriteLine(median);
@@ -46,11 +47,12 @@ namespace examination_1
                     }
                 }
 
-                // int range = Statistics.Range(array);
-                // System.Console.WriteLine(range);
+                int range = Statistics.Range(array);
+                System.Console.WriteLine(range);
 
-                // double standardDeviation = Statistics.StandardDeviation(array);
-                // System.Console.WriteLine(standardDeviation);
+                double standardDeviation = Statistics.StandardDeviation(array);
+                // System.Console.WriteLine($"{standardDeviation:f1}");
+                System.Console.WriteLine(standardDeviation);
             }
         }
     }
