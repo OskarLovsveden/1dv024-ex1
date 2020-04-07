@@ -90,23 +90,17 @@ namespace examination_1
                 }
                 else
                 {
-                    numbers.Add(number, 1);
+                    numbers[number] = 1;
                 }
             }
 
-            List<KeyValuePair<int, int>> list = numbers.ToList();
-            int max = list.Max(number => number.Value);
-            List<int> modeList = new List<int>();
+            int[] numbersArray = numbers.Keys.ToArray();
+            int[] occurencesArray = numbers.Values.ToArray();
+            int max = Maximum(occurencesArray);
 
-            foreach (KeyValuePair<int, int> numberPair in list)
-            {
-                if (numberPair.Value == max)
-                {
-                    modeList.Add(numberPair.Key);
-                }
-            }
+            int[] mode = numbersArray.Where((number, i) => occurencesArray[i] == max).ToArray();
 
-            return (int[])modeList.ToArray();
+            return mode;
         }
 
         /// <summary>
@@ -128,8 +122,7 @@ namespace examination_1
         public static double StandardDeviation(int[] source)
         {
             double mean = Mean(source);
-            // double sumOfSquaredNumbers = source.Sum(number => (number - mean) * (number - mean));
-            double sumOfSquaredNumbers = source.Select(number => (number - mean) * (number - mean)).Sum();
+            double sumOfSquaredNumbers = source.Sum(number => Math.Pow((number - mean), 2));
             double standardDeviation = Math.Sqrt(sumOfSquaredNumbers / (source.Length));
 
             return standardDeviation;
