@@ -45,6 +45,12 @@ namespace examination_1
                         System.Console.WriteLine(mode[i]);
                     }
                 }
+
+                // int range = Statistics.Range(array);
+                // System.Console.WriteLine(range);
+
+                // double standardDeviation = Statistics.StandardDeviation(array);
+                // System.Console.WriteLine(standardDeviation);
             }
         }
     }
