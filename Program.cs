@@ -27,6 +27,8 @@ namespace examination_1
                 int min = Statistics.Minimum(array);
                 System.Console.WriteLine(min);
 
+                double mean = Statistics.Mean(array);
+                System.Console.WriteLine($"{mean:f1}");
             }
         }
     }
