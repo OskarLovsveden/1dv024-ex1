@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace examination_1
@@ -21,8 +22,15 @@ namespace examination_1
                 string json = reader.ReadToEnd();
                 int[] data = JsonConvert.DeserializeObject<int[]>(json);
 
-                dynamic result = Statistics.DescriptiveStatistics(data);
-                Presenter.Present(result);
+                try
+                {
+                    dynamic result = Statistics.DescriptiveStatistics(data);
+                    Presenter.Present(result);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
