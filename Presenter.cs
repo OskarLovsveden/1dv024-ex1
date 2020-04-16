@@ -12,10 +12,12 @@ namespace examination_1
         /// <param name="data"></param>
         public static void Present(dynamic data)
         {
-            Console.WriteLine(data.Maximum);
-            Console.WriteLine(data.Minimum);
-            Console.WriteLine($"{data.Mean:f1}");
-            Console.WriteLine(data.Median);
+            Console.WriteLine("{0,-20} {1}\n", "Type", "Data");
+            Console.WriteLine("{0,-20} {1}", "Maximum:", data.Maximum);
+            Console.WriteLine("{0,-20} {1}", "Minimum:", data.Minimum);
+            Console.WriteLine("{0,-20} {1}", "Mean:", $"{data.Mean:f1}");
+            Console.WriteLine("{0,-20} {1}", "Median:", data.Median);
+            Console.Write("{0,-21}", "Mode:");
             for (var i = 0; i < data.Mode.Length; i++)
             {
                 if (i != data.Mode.Length - 1)
@@ -27,8 +29,8 @@ namespace examination_1
                     Console.WriteLine(data.Mode[i]);
                 }
             }
-            Console.WriteLine(data.Range);
-            Console.WriteLine($"{data.StandardDeviation:f1}");
+            Console.WriteLine("{0,-20} {1}", "Range:", data.Range);
+            Console.WriteLine("{0,-20} {1}", "Standard Deviation:", $"{data.StandardDeviation:f1}");
         }
     }
 }
