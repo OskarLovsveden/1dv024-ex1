@@ -19,40 +19,10 @@ namespace examination_1
             using (var reader = new StreamReader(args[0]))
             {
                 string json = reader.ReadToEnd();
-                int[] array = JsonConvert.DeserializeObject<int[]>(json);
+                int[] data = JsonConvert.DeserializeObject<int[]>(json);
 
-                int max = Statistics.Maximum(array);
-                System.Console.WriteLine(max);
-
-                int min = Statistics.Minimum(array);
-                System.Console.WriteLine(min);
-
-                double mean = Statistics.Mean(array);
-                // System.Console.WriteLine($"{mean:f1}");
-                System.Console.WriteLine(mean);
-
-                double median = Statistics.Median(array);
-                System.Console.WriteLine(median);
-
-                int[] mode = Statistics.Mode(array);
-                for (var i = 0; i < mode.Length; i++)
-                {
-                    if (i != mode.Length - 1)
-                    {
-                        System.Console.Write(mode[i] + ", ");
-                    }
-                    else
-                    {
-                        System.Console.WriteLine(mode[i]);
-                    }
-                }
-
-                int range = Statistics.Range(array);
-                System.Console.WriteLine(range);
-
-                double standardDeviation = Statistics.StandardDeviation(array);
-                // System.Console.WriteLine($"{standardDeviation:f1}");
-                System.Console.WriteLine(standardDeviation);
+                dynamic result = Statistics.DescriptiveStatistics(data);
+                Presenter.Present(result);
             }
         }
     }
