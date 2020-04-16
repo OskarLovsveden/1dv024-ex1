@@ -9,6 +9,22 @@ namespace examination_1
     /// </summary>
     public static class Statistics
     {
+        public static dynamic DescriptiveStatistics(int[] source)
+        {
+            dynamic result = new
+            {
+                Maximum = Maximum(source),
+                Minimum = Minimum(source),
+                Mean = Mean(source),
+                Median = Median(source),
+                Mode = Mode(source),
+                Range = Range(source),
+                StandardDeviation = StandardDeviation(source)
+            };
+
+            return result;
+        }
+
         /// <summary>
         /// Gets the max value in an array containing integers.
         /// </summary>
