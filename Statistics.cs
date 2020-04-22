@@ -14,7 +14,7 @@ namespace examination_1
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static int[] CopyAndSortArray(int[] source)
+        static int[] CopyAndSortArray(int[] source)
         {
             int[] copy = new int[source.Length];
             source.CopyTo(copy, 0);
@@ -24,11 +24,10 @@ namespace examination_1
         }
 
         /// <summary>
-        /// Creates a new object with the statistics for the passed data.
+        /// Validates the given array to make sure it isnt null or empty.
         /// </summary>
         /// <param name="source"></param>
-        /// <returns></returns>
-        public static dynamic DescriptiveStatistics(int[] source)
+        static void ValidateArray(int[] source)
         {
             if (source == null)
             {
@@ -39,6 +38,16 @@ namespace examination_1
             {
                 throw new InvalidOperationException("Sequence contains no elements");
             }
+        }
+
+        /// <summary>
+        /// Creates a new object with the statistics for the passed data.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static dynamic DescriptiveStatistics(int[] source)
+        {
+            ValidateArray(source);
 
             dynamic result = new
             {
@@ -61,14 +70,7 @@ namespace examination_1
         /// <returns>An integer.</returns>
         public static int Maximum(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
+            ValidateArray(source);
 
             int max = source.Max();
             return max;
@@ -81,14 +83,7 @@ namespace examination_1
         /// <returns>An integer.</returns>
         public static int Minimum(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
+            ValidateArray(source);
 
             int min = source.Min();
             return min;
@@ -101,14 +96,7 @@ namespace examination_1
         /// <returns>A double.</returns>
         public static double Mean(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
+            ValidateArray(source);
 
             double mean = source.Average();
             return mean;
@@ -121,15 +109,7 @@ namespace examination_1
         /// <returns>A double.</returns>
         public static double Median(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
-
+            ValidateArray(source);
             int[] copy = CopyAndSortArray(source);
 
             int copyLength = copy.Length;
@@ -156,15 +136,7 @@ namespace examination_1
         /// <returns>An array of integers.</returns>
         public static int[] Mode(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
-
+            ValidateArray(source);
             int[] copy = CopyAndSortArray(source);
 
             Dictionary<int, int> numbers = new Dictionary<int, int>();
@@ -196,14 +168,7 @@ namespace examination_1
         /// <returns>An integer.</returns>
         public static int Range(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
+            ValidateArray(source);
 
             int rangeValue = Maximum(source) - Minimum(source);
             return rangeValue;
@@ -216,14 +181,7 @@ namespace examination_1
         /// <returns>A double.</returns>
         public static double StandardDeviation(int[] source)
         {
-            if (source == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if (source.Length == 0)
-            {
-                throw new InvalidOperationException("Sequence contains no elements");
-            }
+            ValidateArray(source);
 
             double mean = Mean(source);
             double sumOfSquaredNumbers = source.Sum(number => Math.Pow((number - mean), 2));
